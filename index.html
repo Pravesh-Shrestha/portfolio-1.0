@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pravesh Kumar Shrestha | Portfolio</title>
+  <meta name="description" content="Portfolio of Pravesh Kumar Shrestha - UI Designer, Full-Stack Developer & Marketing Officer.">
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Live Background Decorative Shapes -->
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+  <div class="bg-shape shape-3"></div>
+
+  <header id="header">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-terminal"></i> pravesh<span>.shrestha</span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certs">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- --- Hero Section --- -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <span class="hero-subtitle">
+        <span class="tech-content">$ whoami</span>
+        <span class="marketing-content">// Core Value Proposition</span>
+      </span>
+      <h1 class="hero-title">
+        <span class="tech-content">Pravesh Kumar Shrestha</span>
+        <span class="marketing-content">Pravesh K. Shrestha</span>
+      </h1>
+      <div class="hero-typing">
+        <span>$ </span><span id="role-text"></span><span class="typing-cursor">|</span>
+      </div>
+      <p class="hero-description">
+        <span class="tech-content">I specialize in bridging the gap between interface design thinking (UI/UX) and structural stability (Full-Stack Software Engineering).</span>
+        <span class="marketing-content">I turn ideas into high-converting digital products, blending custom UI/UX design with growth strategies to build software that scales and turns visitors into customers.</span>
+      </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fa-solid fa-code"></i> 
+          <span class="tech-content">View Projects</span>
+          <span class="marketing-content">Explore Products</span>
+        </a>
+        <a href="#contact" class="btn btn-secondary">
+          <i class="fa-solid fa-paper-plane"></i> Contact Me
+        </a>
+      </div>
+    </div>
+    <div class="hero-graphic">
+      <!-- Animated Custom Vector Dashboard instead of external GIPHY GIF -->
+      <div class="interactive-hero-graphic">
+        <div class="window-decor">
+          <span class="dot close"></span>
+          <span class="dot minimize"></span>
+          <span class="dot expand"></span>
+          <span class="window-tab"><i class="fa-solid fa-code"></i> pravesh_dashboard.sh</span>
+        </div>
+        <div class="dashboard-inner">
+          <!-- Code editor mock display -->
+          <div class="editor-pane">
+            <pre class="code-lines"><code><span class="keyword">const</span> <span class="variable">pravesh</span> = {
+  <span class="property">roles</span>: [<span class="string">"Engineer"</span>, <span class="string">"Marketer"</span>],
+  <span class="property">focus</span>: <span class="string">"High Growth & ROI"</span>,
+  <span class="property">stack</span>: [<span class="string">"PERN"</span>, <span class="string">"Kotlin"</span>, <span class="string">"Figma"</span>]
+};
+<span class="function">compile</span>(<span class="variable">pravesh</span>);</code></pre>
+          </div>
+          <!-- Marketing graph mock display -->
+          <div class="analytics-pane">
+            <div class="chart-header">
+              <span class="chart-title">System Impact (Growth ROI)</span>
+              <span class="chart-stat">+142%</span>
+            </div>
+            <div class="chart-body">
+              <svg class="growth-chart" viewBox="0 0 100 50">
+                <defs>
+                  <linearGradient id="chart-grad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="var(--color-primary)" stop-opacity="0.4"/>
+                    <stop offset="100%" stop-color="var(--color-primary)" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path class="chart-area" d="M 0 50 Q 25 38 50 25 T 100 12 L 100 50 Z" fill="url(#chart-grad)"></path>
+                <path class="chart-line" d="M 0 50 Q 25 38 50 25 T 100 12" fill="none" stroke="var(--color-primary)" stroke-width="2.5"></path>
+                <!-- Grid Lines -->
+                <line x1="0" y1="20" x2="100" y2="20" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+                <line x1="0" y1="35" x2="100" y2="35" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+                <!-- Pulse Glow Dot -->
+                <circle class="chart-pulse" cx="100" cy="12" r="3.5" fill="var(--color-secondary)"></circle>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!-- Floating canvas badges -->
+        <div class="floating-badge figma" title="Figma (Design Tools)"><i class="fa-brands fa-figma"></i></div>
+        <div class="floating-badge react" title="React / Kotlin (Tech Code)"><i class="fa-brands fa-react"></i></div>
+        <div class="floating-badge sales" title="Growth Analytics (Marketing)"><i class="fa-solid fa-chart-line"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- About (Terminal style) Section --- -->
+  <section class="about reveal-element" id="about">
+    <h2 class="section-title">
+      <span class="tech-content">System Diagnostics</span>
+      <span class="marketing-content">Business Diagnostics & ROI</span>
+    </h2>
+    <div class="about-grid">
+      <div class="terminal-mock">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <span class="t-btn close"></span>
+            <span class="t-btn minimize"></span>
+            <span class="t-btn expand"></span>
+          </div>
+          <div class="terminal-title">
+            <span class="tech-content">pravesh@softwarica: ~</span>
+            <span class="marketing-content">pravesh@marketing-hq: ~</span>
+          </div>
+          <i class="fa-solid fa-shield-halved" style="color: var(--color-text-muted); font-size: 0.8rem;"></i>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-history" id="terminal-history">
+            <div><span class="t-prompt">pravesh@softwarica:~$</span> <span class="t-input">neofetch --profile</span></div>
+            <div class="t-output">
+              <br />
+              <strong>Pravesh Kumar Shrestha</strong><br />
+              -----------------------<br />
+              <strong>OS</strong>: Softwarica-Coventry Computing Linux v3.6<br />
+              <strong>SHELL</strong>: Zsh (React, NodeJS, Express, Python, Kotlin)<br />
+              <strong>IDE</strong>: Figma | Android Studio | VS Code<br />
+              <strong>ROLES</strong>: UI Designer & Marketing Officer @ PRESS1 Technologies<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Project Lead @ DigiSchool Global / DigiSchool Australia<br />
+              <strong>STATUS</strong>: Engineering PERN Stack, Mobile Apps & Cloud integrations 🚀<br />
+              <strong>MOTTO</strong>: "Bridging aesthetics with clean, functional code." 🎨
+            </div>
+            <div><span class="t-prompt">pravesh@softwarica:~$</span> <span class="t-input">cat mission_statement.txt</span></div>
+            <div class="t-output">
+              I leverage Design Thinking, gamification, and robust software architecture to solve complex problems and build engaging digital experiences that scale.
+            </div>
+          </div>
+          <div class="terminal-input-line">
+            <span class="t-prompt">guest@pravesh:~$</span>
+            <input type="text" id="terminal-user-input" class="terminal-real-input" placeholder="type 'help' for system console commands..." autocomplete="off" />
+          </div>
+        </div>
+      </div>
+      <div class="metrics-box">
+        <div class="metric-card spotlight-card reveal-element delay-100">
+          <div class="tech-content">
+            <div class="metric-value">2.5+</div>
+            <div class="metric-label">Years in Design & Dev</div>
+            <div class="metric-desc">Developing production grade software & interfaces.</div>
+          </div>
+          <div class="marketing-content">
+            <div class="metric-value">15k+</div>
+            <div class="metric-label">Brand Outreach Reach</div>
+            <div class="metric-desc">Scaled campaigns and engagement metrics for digital educational platforms.</div>
+          </div>
+        </div>
+        <div class="metric-card spotlight-card reveal-element delay-200">
+          <div class="tech-content">
+            <div class="metric-value">10+</div>
+            <div class="metric-label">Projects Completed</div>
+            <div class="metric-desc">Ranging from mobile applications to complex POS inventory systems.</div>
+          </div>
+          <div class="marketing-content">
+            <div class="metric-value">+40%</div>
+            <div class="metric-label">Outreach Conversion</div>
+            <div class="metric-desc">Boosted registration volume year-over-year at national student events.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Experience Section --- -->
+  <section class="experience reveal-element" id="experience">
+    <h2 class="section-title">
+      <span class="tech-content">Timeline of Milestones</span>
+      <span class="marketing-content">My Professional Journey</span>
+    </h2>
+    <div class="timeline">
+      <!-- Dynamic Scroll Drawing Line -->
+      <div class="timeline-progress-bar" id="timeline-progress"></div>
+      
+      <div class="timeline-item left reveal-element" data-id="exp-press1">
+        <div class="timeline-content spotlight-card">
+          <span class="time-tag">April 2026 - Present</span>
+          <h3>UI Designer & Marketing Officer</h3>
+          <h4>PRESS1 Technologies (Denver, CO - Remote)</h4>
+          <p>Click to view system details...</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right reveal-element" data-id="exp-digischool">
+        <div class="timeline-content spotlight-card">
+          <span class="time-tag">September 2025 - April 2026</span>
+          <h3>Project Lead & Facilitator</h3>
+          <h4>DigiSchool Global (Kathmandu, Nepal - Remote)</h4>
+          <p>Click to view system details...</p>
+        </div>
+      </div>
+
+      <div class="timeline-item left reveal-element" data-id="exp-hult">
+        <div class="timeline-content spotlight-card">
+          <span class="time-tag">March 2025 - March 2026</span>
+          <h3>Marketing Coordinator</h3>
+          <h4>Hult Prize Nepal (Kathmandu, Nepal)</h4>
+          <p>Click to view system details...</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right reveal-element" data-id="exp-ambassador">
+        <div class="timeline-content spotlight-card">
+          <span class="time-tag">December 2022 - Present</span>
+          <h3>IT Student Ambassador</h3>
+          <h4>Tech & Trendy Student Partners (Kathmandu, Nepal)</h4>
+          <p>Click to view system details...</p>
+        </div>
+      </div>
+
+      <div class="timeline-item left reveal-element" data-id="exp-hireo">
+        <div class="timeline-content spotlight-card">
+          <span class="time-tag">June 2024 - August 2024</span>
+          <h3>Hiring Manager</h3>
+          <h4>HIREO (Nepal)</h4>
+          <p>Click to view system details...</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right reveal-element" data-id="exp-kanjirowa">
+        <div class="timeline-content spotlight-card">
+          <span class="time-tag">May 2023 - August 2023</span>
+          <h3>Admissions Counselor (Intern)</h3>
+          <h4>Kanjirowa National School (Kathmandu, Nepal)</h4>
+          <p>Click to view system details...</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- --- Skills Section --- -->
+  <section class="skills reveal-element" id="skills">
+    <h2 class="section-title">
+      <span class="tech-content">Core Capability Stack</span>
+      <span class="marketing-content">Creative & Technical Toolkit</span>
+    </h2>
+    <div class="skills-grid">
+      
+      <div class="skill-category spotlight-card">
+        <div class="skill-category-title">
+          <span><i class="fa-solid fa-laptop-code"></i></span> Frontend & Mobile
+        </div>
+        <div class="skill-list">
+          <div class="skill-item" data-percent="85">
+            <div class="skill-info"><span class="skill-name">React & Redux</span><span class="skill-percentage">85%</span></div>
+            <div class="skill-bar-container"><div class="skill-bar"></div></div>
+          </div>
+          <div class="skill-item" data-percent="80">
+            <div class="skill-info"><span class="skill-name">Kotlin / Android SDK</span><span class="skill-percentage">80%</span></div>
+            <div class="skill-bar-container"><div class="skill-bar"></div></div>
+          </div>
+          <div class="skill-item" data-percent="90">
+            <div class="skill-info"><span class="skill-name">JavaScript & ES6</span><span class="skill-percentage">90%</span></div>
+            <div class="skill-bar-container"><div class="skill-bar"></div></div>
+          </div>
+          <div class="skill-item" data-percent="75">
+            <div class="skill-info"><span class="skill-name">Flutter / Dart</span><span class="skill-percentage">75%</span></div>
+            <div class="skill-bar-container"><div class="skill-bar"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-category spotlight-card">
+        <div class="skill-category-title">
+          <span><i class="fa-solid fa-server"></i></span> Backend & Databases
+        </div>
+        <div class="skill-list">
+          <div class="skill-item" data-percent="80">
+            <div class="skill-info"><span class="skill-name">NodeJS & Express</span><span class="skill-percentage">80%</span></div>
+            <div class="skill-bar-container"><div class="skill-bar"></div></div>
+          </div>
+          <div class="skill-item" data-percent="75">
+            <div class="skill-info"><span class="skill-name">Python & Pandas</span><span class="skill-percentage">75%</span></div>
+            <div class="skill-bar-container"><div class="skill-bar"></div></div>
+          </div>
+          <div class="skill-item" data-percent="85">
+            <div class="skill-info"><span class="skill-name">SQL Databases (MySQL, Postgres)</span><span class="skill-percentage">85%</span></div>
+            <div class="skill-bar-container"><div class="skill-bar"></div></div>
+          </div>
+          <div class="skill-item" data-percent="70">
+            <div class="skill-info"><span class="skill-name">DevOps & Git</span><span class="skill-percentage">70%</span></div>
+            <div class="skill-bar-container"><div class="skill-bar"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-category spotlight-card">
+        <div class="skill-category-title">
+          <span><i class="fa-solid fa-palette"></i></span> UI/UX & Creative Tools
+        </div>
+        <div class="skill-list">
+          <div class="skill-item" data-percent="90">
+            <div class="skill-info"><span class="skill-name">Figma (Prototyping)</span><span class="skill-percentage">90%</span></div>
+            <div class="skill-bar-container"><div class="skill-bar"></div></div>
+          </div>
+          <div class="skill-item" data-percent="90">
+            <div class="skill-info"><span class="skill-name">Canva & Illustrator</span><span class="skill-percentage">90%</span></div>
+            <div class="skill-bar-container"><div class="skill-bar"></div></div>
+          </div>
+          <div class="skill-item" data-percent="85">
+            <div class="skill-info"><span class="skill-name">Design Thinking Matrix</span><span class="skill-percentage">85%</span></div>
+            <div class="skill-bar-container"><div class="skill-bar"></div></div>
+          </div>
+          <div class="skill-item" data-percent="80">
+            <div class="skill-info"><span class="skill-name">Digital Growth Strategy</span><span class="skill-percentage">80%</span></div>
+            <div class="skill-bar-container"><div class="skill-bar"></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- --- Interactive Labs Playground Section --- -->
+  <section class="interactive-lab reveal-element" id="play-lab">
+    <div class="lab-container">
+      <h2 class="section-title">
+        <span class="tech-content">Interactive Labs</span>
+        <span class="marketing-content">Impact & ROI Labs</span>
+      </h2>
+      
+      <div class="lab-tabs">
+        <button class="lab-tab-btn active" id="tab-roi-btn"><i class="fa-solid fa-chart-pie"></i> ROI & Growth Simulator</button>
+        <button class="lab-tab-btn" id="tab-compile-btn"><i class="fa-solid fa-server"></i> Stack Compiler</button>
+      </div>
+
+      <!-- Tab 1: ROI Growth & Speed Simulator -->
+      <div class="lab-content-pane active" id="pane-roi">
+        <div class="simulator-controls">
+          <div class="lab-instruction">
+            <h3>Value Stream Simulator</h3>
+            <p>Drag the sliders to simulate how bridging premium UI design, fast technical execution, and targeted marketing impacts business conversion and user retention metrics.</p>
+          </div>
+          
+          <div class="slider-group">
+            <div class="slider-label">
+              <span>UI/UX Design Fidelity</span>
+              <span id="val-design">80%</span>
+            </div>
+            <input type="range" class="custom-slider" id="slider-design" min="10" max="100" value="80">
+          </div>
+          
+          <div class="slider-group">
+            <div class="slider-label">
+              <span>Code Performance & Speed</span>
+              <span id="val-speed">85%</span>
+            </div>
+            <input type="range" class="custom-slider" id="slider-speed" min="10" max="100" value="85">
+          </div>
+          
+          <div class="slider-group">
+            <div class="slider-label">
+              <span>Marketing Campaign Outreach</span>
+              <span id="val-marketing">70%</span>
+            </div>
+            <input type="range" class="custom-slider" id="slider-marketing" min="10" max="100" value="70">
+          </div>
+        </div>
+        
+        <div class="simulator-results">
+          <div class="result-card spotlight-card">
+            <div class="result-value" id="res-conversion">+0.0%</div>
+            <div class="result-label">ESTIMATED CONVERSION BOOST</div>
+          </div>
+          <div class="result-card spotlight-card">
+            <div class="result-value accent" id="res-retention">+0%</div>
+            <div class="result-label">USER RETENTION LIFT</div>
+          </div>
+          <div class="result-card spotlight-card">
+            <div class="result-value" id="res-score">0/100</div>
+            <div class="result-label">INTEGRATED SUCCESS SCORE</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Dynamic Stack Compiler -->
+      <div class="lab-content-pane" id="pane-compile">
+        <div class="simulator-controls">
+          <div class="lab-instruction">
+            <h3>Architecture Compiler</h3>
+            <p>Select service layers to compile Pravesh's capability model. Tap nodes to toggle them on/off, then click 'Compile Stack' to generate the build logs.</p>
+          </div>
+          
+          <div class="compiler-grid">
+            <div class="compiler-node active" data-node="figma">
+              <i class="fa-brands fa-figma"></i>
+              <span>Figma (UI/UX)</span>
+            </div>
+            <div class="compiler-node active" data-node="react">
+              <i class="fa-brands fa-react"></i>
+              <span>React (Web)</span>
+            </div>
+            <div class="compiler-node active" data-node="node">
+              <i class="fa-brands fa-node-js"></i>
+              <span>NodeJS (API)</span>
+            </div>
+            <div class="compiler-node active" data-node="postgres">
+              <i class="fa-solid fa-database"></i>
+              <span>SQL (DB)</span>
+            </div>
+            <div class="compiler-node" data-node="kotlin">
+              <i class="fa-brands fa-android"></i>
+              <span>Kotlin (App)</span>
+            </div>
+            <div class="compiler-node" data-node="growth">
+              <i class="fa-solid fa-bullseye"></i>
+              <span>Canva (Growth)</span>
+            </div>
+          </div>
+          
+          <button class="compiler-action" id="compiler-action-btn">Compile Stack</button>
+        </div>
+        
+        <div class="compiler-console">
+          <div class="console-output" id="compiler-console-output">
+            <div class="line info">[SYSTEM] Ready to compile selected service nodes.</div>
+            <div class="line">Select nodes above and click compile...</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- --- Projects Section --- -->
+  <section class="projects reveal-element" id="projects">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-grid">
+      
+      <div class="project-card spotlight-card" data-id="proj-karya">
+        <div class="project-img-container">
+          <i class="fa-solid fa-globe project-icon"></i>
+        </div>
+        <div class="project-card-body">
+          <div class="project-tags">
+            <span class="tag">Kotlin</span>
+            <span class="tag">Android Studio</span>
+            <span class="tag">Firebase</span>
+          </div>
+          <h3>Karya Connect Nepal</h3>
+          <p>A freelancing portal that bridges clients with skilled IT professionals across Nepal, incorporating integrated chat and tracking.</p>
+          <div class="project-card-footer">
+            <span>Read System Specs</span> <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card spotlight-card" data-id="proj-bagaicha">
+        <div class="project-img-container">
+          <i class="fa-solid fa-seedling project-icon"></i>
+        </div>
+        <div class="project-card-body">
+          <div class="project-tags">
+            <span class="tag">React</span>
+            <span class="tag">NodeJS</span>
+            <span class="tag">MySQL</span>
+          </div>
+          <h3>Bagaicha</h3>
+          <p>A floral Point of Sale (POS) system designed to optimize order tracking, invoice generation, and inventory cataloging.</p>
+          <div class="project-card-footer">
+            <span>Read System Specs</span> <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card spotlight-card" data-id="proj-hajiri">
+        <div class="project-img-container">
+          <i class="fa-regular fa-calendar-check project-icon"></i>
+        </div>
+        <div class="project-card-body">
+          <div class="project-tags">
+            <span class="tag">React</span>
+            <span class="tag">NodeJS</span>
+            <span class="tag">Express</span>
+          </div>
+          <h3>Hajiri</h3>
+          <p>An automated attendance tracking platform built to track check-in and check-out patterns for students and staff.</p>
+          <div class="project-card-footer">
+            <span>Read System Specs</span> <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card spotlight-card" data-id="proj-peerpicks">
+        <div class="project-img-container">
+          <i class="fa-solid fa-star project-icon"></i>
+        </div>
+        <div class="project-card-body">
+          <div class="project-tags">
+            <span class="tag">JS</span>
+            <span class="tag">Kotlin</span>
+            <span class="tag">Android</span>
+          </div>
+          <h3>PeerPicks Web & App</h3>
+          <p>Social review ecosystems for rating local products, services, and stores with a unified sharing network.</p>
+          <div class="project-card-footer">
+            <span>Read System Specs</span> <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- --- Certifications Section --- -->
+  <section class="certs reveal-element" id="certs">
+    <h2 class="section-title">
+      <span class="tech-content">Licenses & Certifications</span>
+      <span class="marketing-content">Accreditations & Credentials</span>
+    </h2>
+    <div class="certs-slider-container">
+      <button class="slider-btn prev" id="slider-prev"><i class="fa-solid fa-chevron-left"></i></button>
+      <button class="slider-btn next" id="slider-next"><i class="fa-solid fa-chevron-right"></i></button>
+      <div class="certs-slider" id="certs-slider">
+        
+        <div class="cert-slide">
+          <div class="cert-card spotlight-card">
+            <div class="cert-badge-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+            <div class="cert-details">
+              <h3>DevOps Training (22 Hours)</h3>
+              <h4>Broadway Infosys (April 2026)</h4>
+              <p>Docker | CI/CD Pipelines | AWS Deployments</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-slide">
+          <div class="cert-card spotlight-card">
+            <div class="cert-badge-icon"><i class="fa-solid fa-user-shield"></i></div>
+            <div class="cert-details">
+              <h3>Certified Online Fraud Prevention Specialist (COFPS)</h3>
+              <h4>Hack & Fix (May 2026)</h4>
+              <p>Web Security | Encryption | Transaction Auditing</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-slide">
+          <div class="cert-card spotlight-card">
+            <div class="cert-badge-icon"><i class="fa-solid fa-medal"></i></div>
+            <div class="cert-details">
+              <h3>Quizizz Game Changer</h3>
+              <h4>Wayground / Quizizz (January 2026)</h4>
+              <p>Gamified Learning Models | Interaction Design</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-slide">
+          <div class="cert-card spotlight-card">
+            <div class="cert-badge-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <div class="cert-details">
+              <h3>Intermediate Python & pandas dataframes</h3>
+              <h4>DataCamp (March - April 2026)</h4>
+              <p>Data analysis | Statistical Modeling | Data Manipulation</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-slide">
+          <div class="cert-card spotlight-card">
+            <div class="cert-badge-icon"><i class="fa-solid fa-brain"></i></div>
+            <div class="cert-details">
+              <h3>Prompt Engineering & AI Fundamentals</h3>
+              <h4>DataCamp (December 2025)</h4>
+              <p>Large Language Models | System instruction prompts | AI ethics</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="slider-dots" id="slider-dots"></div>
+    </div>
+  </section>
+
+  <!-- --- Contact Section --- -->
+  <section class="contact reveal-element" id="contact">
+    <h2 class="section-title">
+      <span class="tech-content">Ping Me</span>
+      <span class="marketing-content">Let's Connect</span>
+    </h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>
+          <span class="tech-content">Connect to my nodes</span>
+          <span class="marketing-content">Establish Contact</span>
+        </h3>
+        <p>Feel free to reach out for project collaboration, UI/UX consulting, or full-stack software development projects.</p>
+        <div class="contact-details-list">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div class="contact-meta">
+              <span>Send Mail</span>
+              <a href="mailto:sthapravesh12@gmail.com">sthapravesh12@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+            <div class="contact-meta">
+              <span>Call Endpoint</span>
+              <p>+977 9767224529</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="contact-meta">
+              <span>Node Location</span>
+              <p>Kathmandu, Nepal</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+        <div class="form-group">
+          <label for="name">
+            <span class="tech-content"># USER_NAME</span>
+            <span class="marketing-content">Your Name</span>
+          </label>
+          <input type="text" id="name" name="name" class="form-control" placeholder="Identify yourself..." required>
+        </div>
+        <div class="form-group">
+          <label for="email">
+            <span class="tech-content"># GUEST_EMAIL</span>
+            <span class="marketing-content">Your Email Address</span>
+          </label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="Enter contact node..." required>
+        </div>
+        <div class="form-group">
+          <label for="msg">
+            <span class="tech-content"># MESSAGE_BODY</span>
+            <span class="marketing-content">Your Message</span>
+          </label>
+          <textarea id="msg" name="message" class="form-control" placeholder="Type your transmission here..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <i class="fa-solid fa-paper-plane"></i> 
+          <span class="tech-content">Send Signal</span>
+          <span class="marketing-content">Send Message</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- --- Footer --- -->
+  <footer>
+    <div class="footer-socials">
+      <a href="https://www.linkedin.com/in/pravesh-kumar-shrestha-96a357247/" target="_blank" rel="noreferrer" class="social-btn">
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      <a href="https://www.instagram.com/probs.img/?hl=en" target="_blank" rel="noreferrer" class="social-btn">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/prabesh.shresthaa" target="_blank" rel="noreferrer" class="social-btn">
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
+      <a href="https://github.com/Pravesh-Shrestha" target="_blank" rel="noreferrer" class="social-btn">
+        <i class="fa-brands fa-github"></i>
+      </a>
+    </div>
+    <div class="footer-copy">
+      &copy; <span id="year"></span> | Pravesh Kumar Shrestha | Compiled successfully.
+    </div>
+  </footer>
+
+  <!-- --- Interactive Detail Modal Overlay --- -->
+  <div class="modal-overlay" id="detail-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Close details popup">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-header">
+        <h2 id="modal-title">Details Title</h2>
+        <span class="modal-subtitle" id="modal-subtitle">Sub Details</span>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <!-- Content injected dynamically -->
+      </div>
+      <div class="modal-tech-list" id="modal-tech">
+        <!-- Tags injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating perspective switcher toggle action widget -->
+  <div class="perspective-switch floating-switch" id="perspective-switch" title="Toggle perspective between Developer and Marketing modes">
+    <div class="switch-slider"></div>
+    <button class="switch-btn active" id="btn-tech"><i class="fa-solid fa-code"></i> Tech</button>
+    <button class="switch-btn" id="btn-marketing"><i class="fa-solid fa-chart-line"></i> Marketing</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

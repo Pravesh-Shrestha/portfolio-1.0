@@ -21,7 +21,7 @@
         <i class="fa-solid fa-terminal"></i> pravesh<span>.shrestha</span>
       </a>
 
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="nav-links">
         <i class="fa-solid fa-bars"></i>
       </button>
       <ul class="nav-links" id="nav-links">
@@ -713,10 +713,10 @@
   </div>
 
   <!-- Floating perspective switcher toggle action widget -->
-  <div class="perspective-switch floating-switch" id="perspective-switch" title="Toggle perspective between Developer and Marketing modes">
+  <div class="perspective-switch floating-switch" id="perspective-switch" title="Toggle perspective between Developer and Marketing modes" role="group" aria-label="Content perspective">
     <div class="switch-slider"></div>
-    <button class="switch-btn active" id="btn-tech"><i class="fa-solid fa-code"></i> Tech</button>
-    <button class="switch-btn" id="btn-marketing"><i class="fa-solid fa-chart-line"></i> Marketing</button>
+    <button class="switch-btn active" id="btn-tech" aria-pressed="true"><i class="fa-solid fa-code"></i> Tech</button>
+    <button class="switch-btn" id="btn-marketing" aria-pressed="false"><i class="fa-solid fa-chart-line"></i> Marketing</button>
   </div>
 
   <script src="script.js"></script>

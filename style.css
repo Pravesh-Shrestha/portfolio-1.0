@@ -1160,7 +1160,20 @@ footer {
     font-size: 2.75rem;
   }
   .nav-links {
-    display: none; /* Can toggle in JS */
+    display: none; /* Toggled open via JS with the .mobile-open class */
+  }
+  .nav-links.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    gap: 16px;
+    padding: 20px;
+    background: var(--bg-card);
+    border-bottom: 2px solid var(--border-color);
+    box-shadow: var(--shadow-offset);
   }
   .menu-toggle {
     display: block;
@@ -1906,6 +1919,7 @@ h1, h2, h3, h4, .logo, .nav-links a, .btn, .time-tag, .lab-tab-btn, .metric-valu
 /* Base Body Elements */
 body {
   font-family: var(--font-sans) !important;
+  transition: background-color 0.4s ease, color 0.4s ease !important;
 }
 
 /* Brutalist Offset Shadows for Cards & Panes */
@@ -1924,8 +1938,11 @@ body {
   border: 2px solid var(--border-color) !important;
   border-radius: 4px !important;
   box-shadow: var(--shadow-offset) !important;
-  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-              box-shadow 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              background-color 0.3s ease,
+              border-color 0.3s ease,
+              color 0.3s ease !important;
   overflow: hidden;
 }
 
@@ -2205,7 +2222,8 @@ body.mode-marketing .slider-btn:hover {
   padding: 4px !important;
   cursor: pointer !important;
   user-select: none !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+              background-color 0.3s ease, border-color 0.3s ease !important;
 }
 
 body.mode-marketing .floating-switch {
@@ -2244,7 +2262,8 @@ body.mode-marketing .floating-switch {
   border-radius: 2px !important;
   border: 2px solid var(--border-color) !important;
   z-index: 0 !important;
-  transition: left 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  transition: left 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              background-color 0.3s ease, border-color 0.3s ease !important;
 }
 
 body.mode-marketing .switch-slider {
@@ -2323,24 +2342,24 @@ body.mode-marketing .timeline-item::after {
   position: fixed !important;
   pointer-events: none !important;
   z-index: -1 !important;
-  opacity: 0.05 !important;
+  opacity: 0.16 !important;
   transition: opacity 0.8s ease, background 0.8s ease, border-radius 0.8s ease !important;
 }
 
 /* Shape layouts */
 .shape-1 {
-  width: 300px !important;
-  height: 300px !important;
-  border: 2px dashed var(--color-primary) !important;
+  width: 320px !important;
+  height: 320px !important;
+  border: 3px dashed var(--color-primary) !important;
   top: 15% !important;
   left: 5% !important;
   animation: float-slow-rotate 25s infinite linear !important;
 }
 
 .shape-2 {
-  width: 220px !important;
-  height: 220px !important;
-  border: 2px dashed var(--color-secondary) !important;
+  width: 240px !important;
+  height: 240px !important;
+  border: 3px dashed var(--color-secondary) !important;
   border-radius: 50% !important;
   bottom: 20% !important;
   right: 8% !important;
@@ -2348,10 +2367,10 @@ body.mode-marketing .timeline-item::after {
 }
 
 .shape-3 {
-  width: 180px !important;
-  height: 180px !important;
-  border-left: 2px dashed var(--color-accent) !important;
-  border-bottom: 2px dashed var(--color-accent) !important;
+  width: 190px !important;
+  height: 190px !important;
+  border-left: 3px dashed var(--color-accent) !important;
+  border-bottom: 3px dashed var(--color-accent) !important;
   top: 60% !important;
   left: 12% !important;
   transform: rotate(-15deg) !important;
@@ -2363,21 +2382,21 @@ body.mode-marketing .shape-1 {
   border: none !important;
   background: var(--color-secondary) !important;
   border-radius: 38% 62% 63% 37% / 41% 44% 56% 59% !important; /* Organic blob shape */
-  opacity: 0.06 !important;
+  opacity: 0.18 !important;
 }
 
 body.mode-marketing .shape-2 {
   border: none !important;
   background: var(--color-accent) !important;
   border-radius: 50% 50% 30% 70% / 50% 60% 40% 50% !important;
-  opacity: 0.06 !important;
+  opacity: 0.16 !important;
 }
 
 body.mode-marketing .shape-3 {
   border: none !important;
   background: var(--color-primary) !important;
   border-radius: 40% 60% 40% 60% / 50% 50% 50% 50% !important;
-  opacity: 0.04 !important;
+  opacity: 0.12 !important;
 }
 
 /* Background Grids Animation Keyframes */
@@ -2442,5 +2461,33 @@ body.mode-marketing .shape-3 {
   .bg-shape {
     display: none !important; /* Turn off floating shapes on mobile to optimize performance */
   }
+}
+
+/* ==========================================
+   ACCESSIBILITY & UX SAFEGUARDS
+   ========================================== */
+
+/* Respect the user's OS-level reduced-motion preference: the mode
+   switch drives a lot of animated/transitioning elements at once,
+   which can be uncomfortable for motion-sensitive users. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Visible keyboard focus states (the brutalist buttons above don't
+   define their own, so keyboard users get no indication of focus) */
+.switch-btn:focus-visible,
+.menu-toggle:focus-visible,
+.nav-links a:focus-visible,
+.btn:focus-visible,
+.slider-btn:focus-visible,
+.social-btn:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 3px;
 }
 

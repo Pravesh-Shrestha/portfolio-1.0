@@ -96,17 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (menuToggle) {
     menuToggle.addEventListener('click', () => {
-      navLinksList.style.display = navLinksList.style.display === 'flex' ? 'none' : 'flex';
-      if (navLinksList.style.display === 'flex') {
-        navLinksList.style.flexDirection = 'column';
-        navLinksList.style.position = 'absolute';
-        navLinksList.style.top = '100%';
-        navLinksList.style.left = '0';
-        navLinksList.style.width = '100%';
-        navLinksList.style.background = 'rgba(8, 12, 16, 0.95)';
-        navLinksList.style.padding = '20px';
-        navLinksList.style.borderBottom = '1px solid var(--border-color)';
-      }
+      const isOpen = navLinksList.classList.toggle('mobile-open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
     });
   }
 
@@ -114,7 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
   navLinks.forEach(link => {
     link.addEventListener('click', () => {
       if (window.innerWidth <= 768) {
-        navLinksList.style.display = 'none';
+        navLinksList.classList.remove('mobile-open');
+        if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
       }
     });
   });
@@ -398,13 +390,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function setPerspective(mode) {
     if (mode === 'marketing') {
       document.body.classList.add('mode-marketing');
-      if (btnTech) btnTech.classList.remove('active');
-      if (btnMarketing) btnMarketing.classList.add('active');
+      if (btnTech) { btnTech.classList.remove('active'); btnTech.setAttribute('aria-pressed', 'false'); }
+      if (btnMarketing) { btnMarketing.classList.add('active'); btnMarketing.setAttribute('aria-pressed', 'true'); }
       currentRoles = rolesMarketing;
     } else {
       document.body.classList.remove('mode-marketing');
-      if (btnMarketing) btnMarketing.classList.remove('active');
-      if (btnTech) btnTech.classList.add('active');
+      if (btnMarketing) { btnMarketing.classList.remove('active'); btnMarketing.setAttribute('aria-pressed', 'false'); }
+      if (btnTech) { btnTech.classList.add('active'); btnTech.setAttribute('aria-pressed', 'true'); }
       currentRoles = rolesTech;
     }
     

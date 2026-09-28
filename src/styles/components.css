@@ -250,8 +250,12 @@ html.has-cursor .cursor-dot, html.has-cursor .cursor-ring { opacity: 1; }
   transition: transform 0.3s var(--ease);
   color: var(--ink);
 }
+/* The label has to travel the whole padded box, not just its own height —
+   -110% of an 18px label is 19.8px, but the box is 33px tall, so ~5px of the
+   outgoing word stayed visible underneath the incoming one. -200% clears it at
+   every breakpoint (the mobile dropdown has taller links). */
 .nav__link:hover > span,
-.nav__link.is-active > span { transform: translateY(-110%); color: var(--on-pastel); }
+.nav__link.is-active > span { transform: translateY(-200%); color: var(--on-pastel); }
 .nav__link:hover::after,
 .nav__link.is-active::after { transform: translateY(0); color: var(--on-pastel); }
 .nav__link:hover { background: var(--yellow); }

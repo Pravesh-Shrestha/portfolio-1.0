@@ -1,0 +1,30 @@
+---
+// src/components/Marquee.astro — infinite scrolling sticker strip.
+// Its speed responds to scroll velocity (see main.js).
+import { marqueeWords } from '../data/site';
+
+interface Props {
+  variant?: 'ink' | 'alt';
+}
+const { variant = 'ink' } = Astro.props;
+---
+
+<div
+  class={`marquee${variant === 'alt' ? ' marquee--alt' : ''}`}
+  aria-hidden="true"
+  data-marquee
+>
+  <div class="marquee__track">
+    {
+      [0, 1].map(() => (
+        <div class="marquee__group">
+          {marqueeWords.map((word) => (
+            <span class="marquee__item">
+              {word} <span class="marquee__sep">✦</span>
+            </span>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</div>

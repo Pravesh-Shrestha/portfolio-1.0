@@ -1,0 +1,58 @@
+---
+// src/components/Arcade.astro — "BUG SQUASH", a 30-second mini game.
+// The board is server-rendered; the game logic lives in main.js.
+const COLS = 6;
+const ROWS = 4;
+const cells = Array.from({ length: COLS * ROWS }, (_, i) => i);
+---
+
+<div class="arcade" id="arcade" role="dialog" aria-modal="true" aria-labelledby="arcade-title">
+  <div class="arcade__box window">
+    <div class="window__bar">
+      <span class="window__dots" aria-hidden="true">
+        <i class="win-dot win-dot--r"></i><i class="win-dot win-dot--a"></i><i class="win-dot win-dot--g"></i>
+      </span>
+      <span class="window__title" id="arcade-title">bug.squash — 30s</span>
+      <button class="modal__close" id="arcade-close" type="button" aria-label="Close the game">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div class="window__body arcade__body">
+      <div class="arcade__hud">
+        <div class="arcade__stat arcade__stat--score">
+          <span>score</span><b id="arcade-score">0</b>
+        </div>
+        <div class="arcade__stat arcade__stat--combo">
+          <span>combo</span><b id="arcade-combo">×1</b>
+        </div>
+        <div class="arcade__stat">
+          <span>time</span><b id="arcade-time">30</b>
+        </div>
+        <div class="arcade__stat">
+          <span>best</span><b id="arcade-best">0</b>
+        </div>
+      </div>
+
+      <div class="arcade__board" id="arcade-board" role="group" aria-label="Bug squash board">
+        {cells.map(() => <span class="arcade__cell"></span>)}
+      </div>
+
+      <div class="arcade__overlay" id="arcade-overlay">
+        <div>
+          <p class="arcade__kicker retro-label">// mini game</p>
+          <h3 class="arcade__title" id="arcade-headline">BUG SQUASH</h3>
+          <p class="arcade__blurb" id="arcade-blurb">
+            Bugs scurry across the board. Squash as many as you can in 30 seconds —
+            chain hits without missing to build a multiplier.
+          </p>
+          <p class="arcade__score-line" id="arcade-result" hidden></p>
+          <button class="btn" id="arcade-start" type="button" aria-label="Start Bug Squash">
+            <span class="btn__roll" data-label="Start"><span>Start squashing</span></span>
+            <i class="fa-solid fa-play" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

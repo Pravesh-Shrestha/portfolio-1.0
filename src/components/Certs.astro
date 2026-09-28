@@ -1,0 +1,45 @@
+---
+// src/components/Certs.astro — flipping credential cards.
+import { certs } from '../data/content';
+---
+
+<section class="section-pad" id="certs">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label" data-reveal="up" data-scramble>Certifications</div>
+      <h2 class="section-heading" data-reveal="up">
+        Credentials &amp; <span class="text-accent text-accent--mint">licences</span>
+      </h2>
+      <p class="section-sub" data-reveal="up">
+        Hover or tap a card to flip it over.
+      </p>
+    </div>
+
+    <div class="certs__grid" data-reveal-group>
+      {
+        certs.map((cert) => (
+          <div class="cert" tabindex="0" role="button" aria-label={`${cert.title} — show details`}>
+            <div class="cert__inner">
+              <div class="cert__face">
+                <span class="cert__seal" aria-hidden="true">
+                  <i class={`fa-solid ${cert.icon}`}></i>
+                </span>
+                <h3 class="cert__title">{cert.title}</h3>
+                <p class="cert__issuer">{cert.issuer}</p>
+                <span class="cert__date">{cert.date}</span>
+                <span class="cert__hint">flip →</span>
+              </div>
+
+              <div class="cert__face cert__back">
+                <p class="cert__desc">{cert.desc}</p>
+                <div class="cert__tags">
+                  {cert.tags.map((tag) => <span class="tag">{tag}</span>)}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

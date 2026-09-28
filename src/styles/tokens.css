@@ -1,0 +1,214 @@
+/* ============================================================
+   TOKENS — the single source of truth for the design system.
+
+   Two complete themes share one token contract:
+
+     TECH      → dark. Near-black paper, light ink, CRT blue accents.
+     MARKETING → light. Cream paper, dark ink, coral accents.
+
+   The active theme is a class on <html>, applied before first paint
+   by a tiny inline script so there is no flash of the wrong theme.
+   ============================================================ */
+
+:root {
+  /* ---- TECH THEME — DARK (default) ---------------------------- */
+  --ink-rgb:   233, 229, 220;
+  --paper-rgb: 11, 12, 16;
+
+  --paper:    #0B0C10;
+  --paper-2:  #171A21;
+  --paper-3:  #21242D;
+  --card:     #14161C;
+  --ink:      #E9E5DC;
+  --ink-2:    #CFC9BE;
+  --muted:    #9BA0B4;
+  --faint:    #8B90A4;
+
+  --grid-line:     rgba(255, 255, 255, 0.045);
+  --grain-blend:   soft-light;
+  --grain-opacity: 0.26;
+  --scrim:         rgba(4, 5, 8, 0.74);
+  --shadow-color:  rgba(0, 0, 0, 0.72);
+
+  /* bands that used to be "ink on paper" now follow the theme */
+  --band-bg:   #07080B;
+  --band-fg:   var(--ink);
+  --footer-bg: #07080B;
+  --footer-fg: var(--ink);
+
+  /* text drawn on a solid pastel fill is always dark */
+  --on-pastel: #14110F;
+
+  /* ---- sticker palette (solid in both themes) ------------------ */
+  --yellow:   #FFD966;
+  --yellow-2: #F2C14E;
+  --pink:     #F7A8C4;
+  --mint:     #A8E6CF;
+  --lav:      #C9B6F5;
+  --blue:     #A8D8F0;
+  --red:      #FF6B4A;
+  --teal:     #5FD3A8;
+  --green:    #61C554;
+
+  /* ---- retro CRT screen (loader) ------------------------------- */
+  --screen:   #0E2A4A;
+  --screen-2: #143A63;
+  --screen-3: #061726;
+
+  /* ---- live theme accents -------------------------------------- */
+  --t-accent:      #5AA9F5;
+  --t-accent-2:    #B39BFF;
+  --t-soft:        #7FB6E8;
+  --t-hl:          #FFD966;  /* solid sticker — text on it is always --t-on-hl */
+  --t-on-hl:       var(--on-pastel);
+  --t-screen:      #0E2A4A;
+  --t-screen-deep: #061726;
+  --t-on-screen:   #DCEBF7;
+
+  /* sticker markers behind the stat numerals — solid pastels in both themes
+     (the numerals switch to dark ink so they stay readable on them) */
+  --marker-1: #FFD966;
+  --marker-2: #F7A8C4;
+  --marker-3: #A8E6CF;
+  --marker-4: #C9B6F5;
+
+  /* ---- window chrome traffic lights ---------------------------- */
+  --tl-red:   #FF5F57;
+  --tl-amber: #FEBC2E;
+  --tl-green: #61C554;
+
+  /* ---- typography ---------------------------------------------- */
+  --font-display: 'Archivo Black', 'Arial Black', system-ui, sans-serif;
+  --font-body:    'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  --font-hand:    'Caveat', 'Segoe Script', cursive;
+  --font-pixel:   'Silkscreen', 'JetBrains Mono', monospace;
+
+  /* ---- geometry ------------------------------------------------ */
+  --bw:     2px;
+  --r-xs:   4px;
+  --r-sm:   8px;
+  --r:      12px;
+  --r-lg:   20px;
+  --r-pill: 999px;
+
+  /* ---- hard offset shadows (the signature) --------------------- */
+  --sh-xs:   2px 2px 0 var(--shadow-color);
+  --sh-sm:   4px 4px 0 var(--shadow-color);
+  --sh:      6px 6px 0 var(--shadow-color);
+  --sh-lg:   10px 10px 0 var(--shadow-color);
+  --sh-soft: 0 24px 50px -28px rgba(0, 0, 0, 0.8);
+
+  /* ---- motion -------------------------------------------------- */
+  --ease:        cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur:         0.28s;
+
+  /* ---- layout -------------------------------------------------- */
+  --container: 1200px;
+  --nav-h:     84px;
+}
+
+/* ============================================================
+   MARKETING THEME — LIGHT
+   ============================================================ */
+html.mode-marketing {
+  --ink-rgb:   20, 17, 15;
+  --paper-rgb: 251, 247, 239;
+
+  --paper:    #FBF7EF;
+  --paper-2:  #F3EBDC;
+  --paper-3:  #E7DCC5;
+  --card:     #FFFDF8;
+  --ink:      #14110F;
+  --ink-2:    #2A241E;
+  --muted:    #6E655A;
+  --faint:    #6F6553;
+
+  --grid-line:     rgba(20, 17, 15, 0.05);
+  --grain-blend:   multiply;
+  --grain-opacity: 0.5;
+  --scrim:         rgba(20, 17, 15, 0.55);
+  --shadow-color:  #14110F;
+
+  --band-bg:   var(--ink);
+  --band-fg:   var(--paper);
+  --footer-bg: var(--ink);
+  --footer-fg: var(--paper);
+
+  /* deeper than the dark-theme coral so small accent text still clears
+     WCAG AA on cream paper */
+  --red:  #C13A17;
+  --teal: #2E8B6E;
+
+  --screen:   #E4572E;
+  --screen-2: #C9401C;
+  --screen-3: #8E2A11;
+
+  --t-accent:      #C43C1A;
+  --t-accent-2:    #C79A1B;
+  --t-soft:        #F7A8C4;
+  --t-hl:          #FFD966;
+  --t-on-hl:       #14110F;
+  --t-screen:      #E4572E;
+  --t-screen-deep: #8E2A11;
+  --t-on-screen:   #FFF3E4;
+
+  --marker-1: #FFD966;
+  --marker-2: #F7A8C4;
+  --marker-3: #A8E6CF;
+  --marker-4: #C9B6F5;
+}
+
+/* Cross-fade the whole palette instead of snapping between themes. */
+body,
+.loader,
+.marquee,
+.marquee--alt,
+.footer,
+.card,
+.window,
+.project,
+.stat,
+.skill-cat,
+.tl__card,
+.cert__face,
+.doodle,
+.pswitch__thumb,
+.section-label,
+.sticker,
+.tag,
+.chip {
+  transition: background-color 0.5s var(--ease), color 0.5s var(--ease),
+              border-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
+}
+
+/* Respect users who prefer less motion: kill all decorative motion. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 16px);
+  scrollbar-color: var(--ink) var(--paper-2);
+}
+
+img, svg, video, canvas { display: block; max-width: 100%; }
+button, input, textarea, select { font: inherit; color: inherit; }
+button { background: none; border: 0; }
+a { color: inherit; }
+ul, ol { list-style: none; padding: 0; }
+table { border-collapse: collapse; }

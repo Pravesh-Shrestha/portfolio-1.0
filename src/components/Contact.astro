@@ -1,0 +1,121 @@
+---
+// src/components/Contact.astro — smiley, sticker rows, copy-to-clipboard, form.
+import { site, socials } from '../data/site';
+import { perspectiveCopy } from '../data/content';
+
+const tel = 'tel:+9779767224529';
+---
+
+<section class="contact section-pad" id="contact">
+  <div class="container">
+    <div class="contact__grid">
+      <!-- details column -->
+      <div>
+        <svg class="contact__smiley" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="29" fill="#FFD966" stroke="#14110F" stroke-width="4"></circle>
+          <circle cx="22" cy="26" r="4" fill="#14110F"></circle>
+          <circle cx="42" cy="26" r="4" fill="#14110F"></circle>
+          <path d="M19 40c4 7 22 7 26 0" fill="none" stroke="#14110F" stroke-width="4" stroke-linecap="round"></path>
+        </svg>
+
+        <div class="section-label" data-reveal="up" data-scramble>Contact</div>
+        <h2 class="section-heading contact__heading" data-reveal="up">
+          <span data-pane="tech" set:html={perspectiveCopy.tech.contactHeading} />
+          <span data-pane="marketing" set:html={perspectiveCopy.marketing.contactHeading} />
+        </h2>
+
+        <div class="contact__rows" data-reveal-group>
+          <div class="contact__row">
+            <span class="contact__ico" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+            <span>
+              <span class="contact__label">Email</span>
+              <a class="contact__val" href={`mailto:${site.email}`}>{site.email}</a>
+            </span>
+            <button
+              class="contact__copy"
+              type="button"
+              data-copy={site.email}
+              aria-label="Copy email address to clipboard"
+            >
+              <i class="fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <a class="contact__row" href={tel}>
+            <span class="contact__ico" aria-hidden="true"><i class="fa-solid fa-phone"></i></span>
+            <span>
+              <span class="contact__label">Phone</span>
+              <span class="contact__val">{site.phone}</span>
+            </span>
+          </a>
+
+          <div class="contact__row">
+            <span class="contact__ico" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
+            <span>
+              <span class="contact__label">Location</span>
+              <span class="contact__val">{site.location}</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="hero__socials">
+          {
+            socials.map((social) => (
+              <a
+                href={social.href}
+                target="_blank"
+                rel="noopener"
+                class="hero__social"
+                aria-label={social.label}
+              >
+                <i class={social.icon} aria-hidden="true"></i>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- form column -->
+      <form
+        class="window form"
+        id="contact-form"
+        action="https://formspree.io/f/your-form-id"
+        method="POST"
+        data-reveal="up"
+      >
+        <div class="window__bar">
+          <span class="window__dots" aria-hidden="true">
+            <i class="win-dot win-dot--r"></i><i class="win-dot win-dot--a"></i><i class="win-dot win-dot--g"></i>
+          </span>
+          <span class="window__title">new_message.form</span>
+        </div>
+
+        <div class="window__body">
+          <div class="form__row">
+            <label class="form__label" for="cf-name">Your name</label>
+            <input class="form__input" id="cf-name" name="name" type="text" placeholder="Jane Doe" required />
+          </div>
+
+          <div class="form__row">
+            <label class="form__label" for="cf-email">Your email</label>
+            <input class="form__input" id="cf-email" name="email" type="email" placeholder="jane@example.com" required />
+          </div>
+
+          <div class="form__row">
+            <label class="form__label" for="cf-message">Message</label>
+            <textarea class="form__area" id="cf-message" name="message" placeholder="Tell me about the project…" required></textarea>
+          </div>
+
+          <div class="form__actions">
+            <button class="btn btn--block" id="cf-submit" type="submit" aria-label="Send message">
+              <span class="btn__roll" data-label="Send it"><span>Send message</span></span>
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <p class="form__note">// usually replies within 24 hours</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

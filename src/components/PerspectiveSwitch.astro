@@ -1,0 +1,22 @@
+---
+// src/components/PerspectiveSwitch.astro — the site's headline interaction.
+// Flipping it re-themes the accents AND reorders/rewrites the content.
+---
+
+<div class="pswitch" id="pswitch">
+  <span class="pswitch__caption retro-label" id="pswitch-caption">perspective</span>
+
+  <div class="pswitch__track" role="group" aria-label="Choose perspective">
+    <span class="pswitch__thumb" aria-hidden="true"></span>
+
+    <button class="pswitch__btn is-active" id="btn-tech" type="button" aria-pressed="true">
+      <i class="fa-solid fa-code" aria-hidden="true"></i> Tech
+    </button>
+
+    <button class="pswitch__btn" id="btn-mktg" type="button" aria-pressed="false">
+      <i class="fa-solid fa-chart-line" aria-hidden="true"></i> Mktg
+    </button>
+  </div>
+
+  <span class="sr-only" role="status" id="pswitch-status">Tech perspective active</span>
+</div>

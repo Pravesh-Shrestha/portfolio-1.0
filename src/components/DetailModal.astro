@@ -1,0 +1,29 @@
+---
+// src/components/DetailModal.astro — shared window-styled detail dialog.
+---
+
+<div class="modal" id="detail-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal__box window">
+    <div class="window__bar">
+      <span class="window__dots" aria-hidden="true">
+        <i class="win-dot win-dot--r"></i><i class="win-dot win-dot--a"></i><i class="win-dot win-dot--g"></i>
+      </span>
+      <span class="window__title" id="modal-kicker">details</span>
+      <button class="modal__close" id="modal-close" type="button" aria-label="Close dialog">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div class="window__body modal__body">
+      <div class="modal__head">
+        <div>
+          <h2 class="modal__title" id="modal-title"></h2>
+          <p class="modal__sub" id="modal-subtitle"></p>
+        </div>
+      </div>
+
+      <div class="modal__text" id="modal-text"></div>
+      <div class="modal__tags" id="modal-tags"></div>
+    </div>
+  </div>
+</div>

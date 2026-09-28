@@ -1,0 +1,11 @@
+/* ============================================================
+   GLOBAL — single stylesheet entry point.
+   Order matters: vendor -> tokens -> base -> components -> sections.
+   ============================================================ */
+
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+@import './tokens.css';
+@import './base.css';
+@import './components.css';
+@import './sections.css';

@@ -1,0 +1,113 @@
+---
+// src/components/Projects.astro — draggable rail with category filters.
+import { projects, projectFilters, perspectiveCopy } from '../data/content';
+---
+
+<section class="section-pad" id="projects">
+  <div class="container">
+    <div class="section-head projects__head">
+      <div>
+        <div class="section-label" data-reveal="up" data-scramble>Projects</div>
+        <h2 class="section-heading" data-reveal="up">
+          <span data-pane="tech" set:html={perspectiveCopy.tech.projectsHeading} />
+          <span data-pane="marketing" set:html={perspectiveCopy.marketing.projectsHeading} />
+        </h2>
+      </div>
+
+      <div class="projects__meta" data-reveal="up">
+        <div class="projects__progress" aria-hidden="true">
+          <i id="projects-progress"></i>
+        </div>
+        <div class="projects__arrows">
+          <button class="projects__arrow" id="proj-prev" type="button" aria-label="Scroll projects left">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+          </button>
+          <button class="projects__arrow" id="proj-next" type="button" aria-label="Scroll projects right">
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="projects__tools" data-reveal="up">
+      <div class="filters" id="project-filters" role="group" aria-label="Filter projects by category">
+        {
+          projectFilters.map((filter, i) => (
+            <button
+              class="filter"
+              type="button"
+              data-filter={filter.id}
+              aria-pressed={i === 0 ? 'true' : 'false'}
+            >
+              <span>{filter.label}</span>
+              <span class="filter__count" data-count-for={filter.id} aria-hidden="true"></span>
+            </button>
+          ))
+        }
+      </div>
+      <p class="projects__hint">drag · scroll · ← →</p>
+    </div>
+  </div>
+
+  <div class="projects__rail" id="projects-rail">
+    <div class="projects__track" id="projects-track" data-reveal-group>
+      {
+        projects.map((project) => (
+          <article
+            class="project spot"
+            data-id={project.id}
+            data-focus={project.focus.join(' ')}
+            data-cats={project.cats.join(' ')}
+          >
+            <span class="project__num">{project.num}</span>
+            <div class="project__cat">{project.category}</div>
+            <h3 class="project__title">{project.title}</h3>
+
+            <p class="project__desc" data-pane="tech">{project.desc}</p>
+            <p class="project__desc" data-pane="marketing">{project.descAlt}</p>
+
+            <div class="project__tags">
+              {project.tags.map((tag) => <span class="tag">{tag}</span>)}
+            </div>
+
+            {project.badge && (
+              <span class={`project__badge project__badge--${project.badge.type}`}>
+                {project.badge.text}
+              </span>
+            )}
+
+            <div class="project__links">
+              {project.links.map((link) => (
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn--sm btn--paper"
+                  aria-label={`${project.title} — ${link.label}`}
+                >
+                  <i class={link.icon} aria-hidden="true"></i>
+                  <span class="btn__roll" data-label={link.label}><span>{link.label}</span></span>
+                </a>
+              ))}
+              <button
+                class="btn btn--sm"
+                type="button"
+                data-detail="project"
+                data-id={project.id}
+                aria-label={`Case study for ${project.title}`}
+              >
+                <span class="btn__roll" data-label="Case study"><span>Case study</span></span>
+              </button>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="container">
+    <p class="projects__empty" id="projects-empty" hidden>
+      Nothing in that category yet — try another filter.
+    </p>
+  </div>
+</section>

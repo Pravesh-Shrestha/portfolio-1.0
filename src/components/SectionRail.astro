@@ -1,0 +1,19 @@
+---
+// src/components/SectionRail.astro — desktop progress rail with one dot
+// per section. Active state follows the scroll position.
+import { navItems } from '../data/site';
+---
+
+<nav class="prail" id="prail" aria-label="Section progress">
+  {
+    navItems.map((item) => (
+      <button
+        class="prail__dot"
+        type="button"
+        data-target={item.id}
+        data-label={item.label}
+        aria-label={`Jump to ${item.label}`}
+      ></button>
+    ))
+  }
+</nav>

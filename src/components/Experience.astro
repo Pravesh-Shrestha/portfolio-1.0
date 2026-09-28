@@ -1,0 +1,67 @@
+---
+// src/components/Experience.astro — alternating paper-note timeline.
+// Sides are derived from the index so the section can be reordered
+// when the perspective switch changes.
+import { experience } from '../data/content';
+---
+
+<section class="section-pad" id="experience">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label" data-reveal="up" data-scramble>Experience</div>
+      <h2 class="section-heading" data-reveal="up">
+        Where I've <span class="text-accent">worked</span>
+      </h2>
+      <p class="section-sub" data-reveal="up">
+        Six roles across design, engineering, operations and growth —
+        open any card for the deeper story.
+      </p>
+    </div>
+
+    <div class="tl" id="tl">
+      <div class="tl__rail" id="tl-rail" aria-hidden="true"></div>
+
+      {
+        experience.map((item, i) => (
+          <div
+            class:list={[
+              'tl__item',
+              i % 2 === 1 && 'tl__item--right',
+              item.accent && 'tl__item--accent',
+            ]}
+            data-reveal={i % 2 === 1 ? 'right' : 'left'}
+            data-focus={item.focus.join(' ')}
+            data-id={item.id}
+          >
+            <span class="tl__node" aria-hidden="true"></span>
+
+            <article class="tl__card spot">
+              <span class="tl__time">{item.time}</span>
+              <h3 class="tl__role">{item.role}</h3>
+              <p class="tl__company">
+                {item.company} <span class="tl__location">· {item.location}</span>
+              </p>
+
+              <p class="tl__desc" data-pane="tech">{item.desc}</p>
+              <p class="tl__desc" data-pane="marketing">{item.descAlt}</p>
+
+              <div class="tl__tags">
+                {item.tags.map((tag) => <span class="tag">{tag}</span>)}
+              </div>
+
+              <button
+                class="btn btn--sm btn--paper u-mt-3"
+                type="button"
+                data-detail="exp"
+                data-id={item.id}
+                aria-label={`View details for ${item.role}`}
+              >
+                <span class="btn__roll" data-label="Details"><span>View details</span></span>
+              </button>
+            </article>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

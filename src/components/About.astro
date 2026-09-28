@@ -1,0 +1,114 @@
+---
+// src/components/About.astro — bio, B&W polaroid, live console, stat stickers.
+import { aboutBio, aboutStats, perspectiveCopy } from '../data/content';
+---
+
+<section class="about section-pad" id="about">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label" data-reveal="up" data-scramble>About me</div>
+      <h2 class="section-heading" data-reveal="up">
+        <span data-pane="tech" set:html={perspectiveCopy.tech.aboutHeading} />
+        <span data-pane="marketing" set:html={perspectiveCopy.marketing.aboutHeading} />
+      </h2>
+    </div>
+
+    <div class="about__grid">
+      <!-- bio -->
+      <article class="window about__bio bio spot" data-reveal="tilt">
+        <div class="window__bar">
+          <span class="window__dots" aria-hidden="true">
+            <i class="win-dot win-dot--r"></i><i class="win-dot win-dot--a"></i><i class="win-dot win-dot--g"></i>
+          </span>
+          <span class="window__title">bio.txt</span>
+        </div>
+        <div class="window__body">
+          <div class="bio__label">// whoami</div>
+
+          <div data-pane="tech">
+            {aboutBio.tech.map((para) => <p set:html={para} />)}
+          </div>
+          <div data-pane="marketing">
+            {aboutBio.marketing.map((para) => <p set:html={para} />)}
+          </div>
+
+          <div class="bio__chips" data-pane="tech">
+            {aboutBio.chipsTech.map((chip) => <span class="chip">{chip}</span>)}
+          </div>
+          <div class="bio__chips" data-pane="marketing">
+            {aboutBio.chipsMarketing.map((chip) => <span class="chip">{chip}</span>)}
+          </div>
+        </div>
+      </article>
+
+      <!-- interactive console -->
+      <article class="window about__console console" data-reveal="up">
+        <div class="window__bar">
+          <span class="window__dots" aria-hidden="true">
+            <i class="win-dot win-dot--r"></i><i class="win-dot win-dot--a"></i><i class="win-dot win-dot--g"></i>
+          </span>
+          <span class="window__title">console — guest@probs</span>
+        </div>
+        <div class="window__body">
+          <div class="console__screen" id="console-screen">
+            <div class="console__line">
+              <span class="console__prompt">~$</span>
+              <span class="console__cmd">cat profile.json</span>
+            </div>
+            <div class="console__out">
+              <span class="console__k">"brand"</span>: "PROBS",<br />
+              <span class="console__k">"name"</span>: "Pravesh Kumar Shrestha",<br />
+              <span class="console__k">"role"</span>: "COO @ HIREO | UI Designer @ PRESS1",<br />
+              <span class="console__k">"based"</span>: "Kathmandu, Nepal"
+            </div>
+            <div class="console__line">
+              <span class="console__prompt">~$</span>
+              <span class="console__caret"></span>
+            </div>
+          </div>
+          <div class="console__input-row">
+            <span class="console__prompt" aria-hidden="true">guest@probs:~$</span>
+            <input
+              class="console__input"
+              id="console-input"
+              type="text"
+              placeholder="type 'help' and hit enter…"
+              autocomplete="off"
+              spellcheck="false"
+              aria-label="Interactive console input"
+            />
+          </div>
+        </div>
+      </article>
+
+      <!-- stat stickers -->
+      <div class="about__stats">
+        {
+          aboutStats.map((stat) => (
+            <div class={`stat stat--${stat.tone} spot`}>
+              <b class={stat.target ? 'counter' : undefined} data-target={stat.target}>
+                {stat.value}
+              </b>
+              <span>{stat.label}</span>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- postage stamp -->
+      <div class="stamp about__stamp" data-reveal="up">
+        <span class="stamp__pin" aria-hidden="true">
+          <i class="fa-solid fa-location-dot"></i>
+        </span>
+        <div>
+          <div class="stamp__city">Kathmandu</div>
+          <div class="stamp__loc">Nepal 🇳🇵 · GMT+5:45</div>
+        </div>
+        <div class="stamp__note">
+          <div class="stamp__loc">availability</div>
+          <div class="hand">remote &amp; freelance friendly ✦</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

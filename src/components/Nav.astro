@@ -1,0 +1,94 @@
+---
+// src/components/Nav.astro — floating window bar: brand, live Kathmandu
+// clock, command-palette trigger, links and résumé.
+import { navItems, site } from '../data/site';
+---
+
+<header class="nav" id="nav">
+  <div class="container">
+    <div class="nav__inner">
+      <span class="nav__lights" aria-hidden="true">
+        <i class="win-dot win-dot--r"></i>
+        <i class="win-dot win-dot--a"></i>
+        <i class="win-dot win-dot--g"></i>
+      </span>
+
+      <a href="#home" class="nav__logo" aria-label={`${site.brand} — home`}>
+        <span class="br">[</span>{site.brand}<span class="dot">.</span><span class="br">]</span>
+      </a>
+
+      <button
+        class="nav__cmd"
+        id="toggle-fx"
+        type="button"
+        data-pane="tech"
+        aria-pressed="true"
+        aria-label="Toggle the background particle field"
+      >
+        <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+        <span>FX</span>
+      </button>
+
+      <button
+        class="nav__cmd"
+        id="open-arcade"
+        type="button"
+        data-pane="marketing"
+        aria-label="Play the mini game"
+      >
+        <i class="fa-solid fa-gamepad" aria-hidden="true"></i>
+        <span>Play</span>
+        <kbd>G</kbd>
+      </button>
+
+      <button
+        class="nav__cmd"
+        id="toggle-music"
+        type="button"
+        aria-pressed="false"
+        aria-label="Toggle background music"
+      >
+        <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>Music</span>
+      </button>
+
+      <button
+        class="nav__toggle"
+        id="nav-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="nav-links"
+      >
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav__links" id="nav-links" aria-label="Primary">
+        {
+          navItems.map((item) => (
+            <a
+              href={`#${item.id}`}
+              class="nav__link"
+              data-label={item.label}
+              data-nav={item.id}
+              aria-label={item.label}
+            >
+              <span aria-hidden="true">{item.label}</span>
+            </a>
+          ))
+        }
+
+        <a
+          href={site.resumeUrl}
+          target="_blank"
+          rel="noopener"
+          class="btn btn--sm btn--yellow nav__resume"
+          aria-label="Résumé (PDF)"
+        >
+          <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+          <span class="btn__roll" data-label="Résumé"><span>Résumé</span></span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>

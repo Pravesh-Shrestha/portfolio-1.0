@@ -1,0 +1,32 @@
+---
+// src/components/Footer.astro
+import { site, socials } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="footer__logo">
+          <span class="br">[</span>{site.brand}<span class="dot">.</span><span class="br">]</span>
+        </span>
+        <span class="footer__tagline retro-label">{site.tagline}</span>
+      </div>
+
+      <p class="footer__copy">
+        © {year} {site.name} · made by {site.brand}
+      </p>
+
+      <div class="footer__socials">
+        {
+          socials.map((social) => (
+            <a href={social.href} target="_blank" rel="noopener" aria-label={social.label}>
+              <i class={social.icon} aria-hidden="true"></i>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</footer>

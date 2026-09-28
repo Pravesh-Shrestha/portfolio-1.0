@@ -1,0 +1,54 @@
+---
+// src/components/Skills.astro — craft-styled proficiency meters.
+// Categories carry a focus tag so the perspective switch can promote
+// the most relevant group to the top.
+import { skillCategories, perspectiveCopy } from '../data/content';
+---
+
+<section class="section-pad" id="skills">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label" data-reveal="up" data-scramble>
+        <span data-pane="tech">Core stack</span>
+        <span data-pane="marketing">Growth stack</span>
+      </div>
+      <h2 class="section-heading" data-reveal="up">
+        <span data-pane="tech" set:html={perspectiveCopy.tech.skillsHeading} />
+        <span data-pane="marketing" set:html={perspectiveCopy.marketing.skillsHeading} />
+      </h2>
+      <p class="section-sub" data-reveal="up">
+        Self-assessed proficiency across four disciplines — the honest version,
+        not the buzzword version.
+      </p>
+    </div>
+
+    <div class="skills__grid" id="skills-grid" data-reveal-group>
+      {
+        skillCategories.map((cat) => (
+          <article class={`skill-cat skill-cat--${cat.tone} spot`} data-focus={cat.focus}>
+            <div class="skill-cat__head">
+              <span class="skill-cat__icon" aria-hidden="true">
+                <i class={`fa-solid ${cat.icon}`}></i>
+              </span>
+              <span class="skill-cat__label">{cat.label}</span>
+            </div>
+
+            <div class="skill-list">
+              {cat.skills.map((skill) => (
+                <div class="skill-item" data-percent={skill.percent}>
+                  <div class="skill-item__top">
+                    <span>{skill.name}</span>
+                    <span class="skill-item__pct">{skill.percent}%</span>
+                  </div>
+                  <div class="skill-item__track">
+                    <span class="skill-item__fill"></span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

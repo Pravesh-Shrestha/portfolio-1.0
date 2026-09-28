@@ -1,0 +1,50 @@
+---
+// src/pages/404.astro — branded not-found page.
+import Layout from '../layouts/Layout.astro';
+
+const links = [
+  { href: '/#projects', label: 'See the work' },
+  { href: '/#about', label: 'About me' },
+  { href: '/#contact', label: 'Get in touch' },
+];
+---
+
+<Layout
+  title="404 — page not found · PROBS"
+  description="That page isn't here. Head back to the PROBS portfolio."
+  noindex
+>
+  <section class="section-pad u-center" style="min-height: 100vh;">
+    <div class="container">
+      <div class="window" style="max-width: 620px; margin-inline: auto;">
+        <div class="window__bar">
+          <span class="window__dots" aria-hidden="true">
+            <i class="win-dot win-dot--r"></i><i class="win-dot win-dot--a"></i><i class="win-dot win-dot--g"></i>
+          </span>
+          <span class="window__title">error.404</span>
+        </div>
+
+        <div class="window__body">
+          <p class="retro-label" style="font-size: 3.4rem; letter-spacing: 0.1em; margin-bottom: 1rem;">404</p>
+          <h1 class="section-heading" style="font-size: clamp(1.6rem, 4vw, 2.4rem);">
+            This page wandered off the map.
+          </h1>
+          <p class="section-sub" style="margin-bottom: 2rem;">
+            The link is broken, or the page moved. Everything worth seeing is
+            back on the main board.
+          </p>
+
+          <div class="hero__cta">
+            {
+              links.map((link, i) => (
+                <a href={link.href} class={`btn${i > 0 ? ' btn--paper' : ''}`}>
+                  <span class="btn__roll" data-label={link.label}><span>{link.label}</span></span>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

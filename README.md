@@ -213,8 +213,36 @@ The build is fully static:
 npm run build     # → dist/
 ```
 
-- **Netlify / Vercel / Cloudflare Pages** — build command `npm run build`, publish `dist`.
-- **GitHub Pages** — set `site` and `base` in `astro.config.mjs` if deploying to a subpath.
+### Netlify
+
+`netlify.toml` is the source of truth, so the site builds correctly even if the
+dashboard still holds stale settings from when the project lived in `astro-portfolio/`:
+
+| Setting | Value |
+| ------- | ----- |
+| Build command | `npm run build` |
+| Publish directory | `dist` |
+| Base directory | *(empty — the project is at the repo root)* |
+| Node | `22` (pinned in `netlify.toml` **and** `.nvmrc`) |
+
+It also sets security headers and long-lived caching for the content-hashed
+bundles in `/assets/`. `dist/404.html` is served automatically by Netlify, so no
+redirect rule is needed.
+
+### GitHub Actions
+
+`.github/workflows/build.yml` runs `npm ci` + `npm run build` on every push and
+pull request, writes the output size to the run summary and uploads `dist/` as a
+downloadable artifact. Netlify deploys through its own Git integration, so the
+workflow doesn't publish anything — it just proves the site builds.
+
+> **GitHub Pages is not used.** Its legacy *Jekyll / dynamic* pipeline cannot
+> build an Astro project, which is why the `pages-build-deployment` run fails on
+> every push. If you want Pages as a second host: set **Settings → Pages →
+> Source** to *GitHub Actions*, then add a `withastro/action` workflow **and**
+> give the config a `base` (`/portfolio-1.0`) — asset paths are absolute, so a
+> project-page subpath needs it. Otherwise, set the source to *None* to stop the
+> failing runs.
 
 ---
 

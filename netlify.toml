@@ -1,0 +1,40 @@
+# Netlify configuration
+#
+# The Astro project lives at the repo ROOT (it used to sit in astro-portfolio/).
+# This file overrides the site dashboard, so the build is correct even if the
+# UI still points at the old folder or an old publish directory.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # package.json requires >= 22.12.0 (Astro 7); Netlify's default can be older
+  NODE_VERSION = "22"
+
+# Astro writes dist/404.html, which Netlify serves for unknown paths itself,
+# so no redirect rule is needed.
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# content-hashed bundles never change, so cache them forever
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/resume/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
